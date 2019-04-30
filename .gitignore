@@ -3,3 +3,8 @@
 nb-configuration.xml
 nbactions.xml
 .DS_Store
+.project
+.classpath
+.factorypath
+.idea/
+.settings/
