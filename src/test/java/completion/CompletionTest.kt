@@ -6,6 +6,9 @@ import org.jetbrains.kotlin.builder.KotlinPsiManager
 import org.jetbrains.kotlin.resolve.KotlinAnalyzer
 import org.jetbrains.kotlin.utils.ProjectUtils
 
+import assertk.assertThat
+import assertk.assertions.*
+
 /**
  *
  * @author Alexander.Baratynski
@@ -25,8 +28,8 @@ class CompletionTest : KotlinTestCase("Completion test", "completion") {
         val completionItems = createProposals(doc, caret, resultWithProvider, "")
         assertNotNull(completionItems)
         
-        val completions = completionItems.map { it.sortText }
-        assertEquals(true, completions.containsAll(items))
+        val completions: List<String> = completionItems.map { it.sortText }
+        assertThat(completions).contains(items)
     }
 
     fun testStringCompletion() = doTest("checkStringCompletion.kt", listOf("toString()"))

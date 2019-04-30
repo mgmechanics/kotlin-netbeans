@@ -6,11 +6,14 @@
   <artifactId>kotlin.netbeans.plugin</artifactId>  
   <version>0.2.0-SNAPSHOT</version>  
   <packaging>nbm</packaging>  
+
   <properties> 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  
     <netbeans.version>RELEASE82</netbeans.version>  
     <kotlin.version>1.1.1</kotlin.version> 
+    <lib>${project.basedir}/lib</lib>
   </properties>  
+
   <name>Kotlin</name>  
   <description url="https://kotlinlang.org/">Kotlin language support</description>  
   <organization> 
@@ -225,43 +228,50 @@
       <groupId>org.jetbrains.kotlin</groupId>  
       <artifactId>kotlin-ide-common</artifactId>  
       <version>1.0</version>  
-      <type>jar</type> 
+      <scope>system</scope>
+      <systemPath>${lib}/kotlin-ide-common.jar</systemPath>
     </dependency>  
     <dependency> 
       <groupId>org.jetbrains.kotlin</groupId>  
       <artifactId>openapi-formatter</artifactId>  
-      <version>1.0</version>  
-      <type>jar</type> 
+      <version>1.0</version>
+      <scope>system</scope>
+      <systemPath>${lib}/openapi-formatter.jar</systemPath>
     </dependency>  
     <dependency> 
       <groupId>org.jetbrains.kotlin</groupId>  
       <artifactId>kotlin-formatter</artifactId>  
       <version>1.0</version>  
-      <type>jar</type> 
+      <scope>system</scope>
+      <systemPath>${lib}/kotlin-formatter.jar</systemPath>
     </dependency>  
     <dependency> 
       <groupId>org.jetbrains.kotlin</groupId>  
       <artifactId>idea-formatter</artifactId>  
       <version>1.0</version>  
-      <type>jar</type> 
+      <scope>system</scope>
+      <systemPath>${lib}/idea-formatter.jar</systemPath>
     </dependency>  
     <dependency> 
       <groupId>org.jetbrains.kotlin</groupId>  
       <artifactId>intellij-core</artifactId>  
       <version>1.0</version>  
-      <type>jar</type> 
+      <scope>system</scope>
+      <systemPath>${lib}/intellij-core.jar</systemPath> 
     </dependency>  
     <dependency> 
       <groupId>org.jetbrains.kotlin</groupId>  
       <artifactId>kotlin-converter</artifactId>  
       <version>1.0</version>  
-      <type>jar</type> 
+      <scope>system</scope>
+      <systemPath>${lib}/kotlin-converter.jar</systemPath>
     </dependency>
     <dependency> 
       <groupId>org.jetbrains.kotlin</groupId>  
       <artifactId>asm</artifactId>  
       <version>1.0</version>  
-      <type>jar</type> 
+      <scope>system</scope>
+      <systemPath>${lib}/asm-all.jar</systemPath> 
     </dependency>
     
     <dependency>
@@ -784,6 +794,12 @@
       <artifactId>org-netbeans-modules-nbjunit</artifactId>  
       <version>${netbeans.version}</version>  
       <scope>test</scope> 
+    </dependency>
+    <dependency>
+      <groupId>com.willowtreeapps.assertk</groupId>
+      <artifactId>assertk-jvm</artifactId>
+      <version>0.14</version>
+      <scope>test</scope>
     </dependency>
   </dependencies> 
 </project>
