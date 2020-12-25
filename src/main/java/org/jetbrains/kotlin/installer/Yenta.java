@@ -117,7 +117,8 @@ public abstract class Yenta extends ModuleInstall {
                 Field friendNamesF = Class.forName("org.netbeans.ModuleData", true, data.getClass().getClassLoader()).getDeclaredField("friendNames");
                 friendNamesF.setAccessible(true);
                 Set<?> names = (Set<?>) friendNamesF.get(data);
-                Set<Object> newNames = new HashSet<Object>(names);
+                // When installing the Kotlin plugin on Netbeans 12.2 (running on Java 11) "names" was null
+                Set<Object> newNames = (names == null) ? new HashSet<Object>() : new HashSet<Object>(names);
                 newNames.add(me.getCodeNameBase());
                 friendNamesF.set(data, newNames);
             }
